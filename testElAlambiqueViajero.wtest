@@ -1,0 +1,29 @@
+import elAlambiqueViajero.*
+describe "test de luke"{
+    test "puede viajar buenos aires"{
+       
+        assert.that(luke.vehiculo().puedeIrALaCiudad(paris))
+    }   
+    test "viaja a buenos aires, despues a paris y revisa si es que viajó 2 veces"{
+        luke.viajar(buenosAires)
+        luke.viajar(paris)
+        assert.equals(luke.sitiosViajados(),2)
+    }
+
+    test "ahora tambien visitó de nuevo buenos aires y despues bagdad para ver el recuerdo que tiene es un bidón petroleo"{
+        luke.viajar(buenosAires)
+        luke.viajar(paris)
+        luke.viajar(buenosAires)
+        luke.viajar(bagdad)
+        assert.equals(luke.recuerdo(), "bidón petroleo")
+
+    }
+
+    test "ahora quiere saber tambien si le da combustible para otro viaje mas"{
+        luke.viajar(buenosAires)
+        luke.viajar(paris)
+        luke.viajar(buenosAires)
+        luke.viajar(bagdad)
+        assert.that( luke.vehiculo().puedeIrALaCiudad(paris))
+    }
+}
